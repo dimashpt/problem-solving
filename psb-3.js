@@ -14,6 +14,26 @@ function timeConversion(s) {
   return `${hours}:${minutes}:${seconds}`;
 }
 
-// Example usage:
-console.log(timeConversion('12:01:00PM')); // '12:01:00'
-console.log(timeConversion('12:01:00AM')); // '00:01:00'
+const readline = require('readline').createInterface({
+  input: process.stdin,
+  output: process.stdout
+});
+
+// Prompt user for input
+readline.question('Enter a time in 12-hour format (HH:mm:ssAM/PM): ', (input) => {
+  // Regex pattern for 12-hour format with optional seconds
+  const regex = /^([01]?\d|2[0-3]):([0-5]\d)(?:[:][0-5]\d)?(AM|PM)$/;
+
+  // Check if the input matches the regex pattern
+  if (!regex.test(input)) {
+    console.error('Please enter a valid time in 12-hour format (HH:mm:ssAM/PM).');
+    readline.close();
+    return;
+  }
+
+  // Call the timeConversion function with the validated input
+  const convertedTime = timeConversion(input);
+  console.log('Converted time in 24-hour format:', convertedTime);
+
+  readline.close();
+});

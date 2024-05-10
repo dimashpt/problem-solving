@@ -1,3 +1,5 @@
+const { inputAndValidate } = require("./helpers");
+
 function plusMinus(arr) {
   // Initialize counters for positive, negative, and zero values
   let positiveCount = 0;
@@ -27,8 +29,4 @@ function plusMinus(arr) {
   console.log(zeroRatio);
 }
 
-// Sample input
-const arr = [1, 1, 0, -1, -1];
-
-// Call the plusMinus function
-plusMinus(arr);
+inputAndValidate(plusMinus)

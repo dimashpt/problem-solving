@@ -1,3 +1,5 @@
+const { inputAndValidate } = require("./helpers");
+
 function miniMaxSum(arr) {
   // Sort the array in ascending order
   arr.sort((a, b) => a - b);
@@ -12,8 +14,4 @@ function miniMaxSum(arr) {
   console.log(`${minSum} ${maxSum}`);
 }
 
-// Sample input
-const arr = [1, 2, 3, 4, 5];
-
-// Call the miniMaxSum function
-miniMaxSum(arr);
+inputAndValidate(miniMaxSum)
